@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>YAML Generator</h1>
+
+    <div class="container">
+        <form action="/submit" method="POST">
+            <!-- SAM Type -->
+            <div class="form-group">
+                <label for="sam_type">SAM Type</label>
+                <select id="sam_type" name="sam_type_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="sam_av2">SAM AV2</option>
+                    <option value="sam_av3">SAM AV3</option>
+                </select>
+            </div>
+
+            <!-- Partner -->
+            <div class="form-group">
+                <label for="partner">Partner</label>
+                <select id="partner" name="partner_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="elatec">Elatec</option>
+                    <option value="rfideas">RFIdeas</option>
+                    <option value="brivo">Brivo</option>
+                    <option value="test">Test</option>
+                </select>
+            </div>
+
+            <!-- Partner Km Number -->
+            <div class="form-group">
+                <label for="partner_km">Partner Km Number</label>
+                <select id="partner_km" name="partner_km_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="elatec">Elatec</option>
+                    <option value="rfideas">RFIdeas</option>
+                    <option value="brivo">Brivo</option>
+                    <option value="pdq">PDQ</option>
+                    <option value="test">Test</option>
+                </select>
+            </div>
+
+            <!-- OEM -->
+            <div class="form-group">
+                <label for="oem">OEM</label>
+                <input type="text" id="oem" name="oem" required>
+            </div>
+
+            <!-- Include Leaf Si Checkbox -->
+            <div class="form-group-checkbox">
+                <input type="checkbox" id="leaf_si" name="leaf_si_choice" value="true">
+                <label for="leaf_si">Include Leaf Si</label>
+            </div>
+
+            <!-- Leaf Cc Keyset -->
+            <div class="form-group">
+                <label for="leaf_cc">Leaf Cc Keyset</label>
+                <input type="text" id="leaf_cc" name="leaf_cc_choice" required>
+            </div>
+
+            <!-- Secondary Leaf Cc Keyset (Optional) -->
+            <div class="form-group">
+                <label for="second_leaf_cc">Secondary Leaf Cc Keyset (Optional)</label>
+                <input type="text" id="second_leaf_cc" name="second_leaf_cc_choice">
+            </div>
+
+            <!-- Include Specialty Keys Checkbox -->
+            <div class="form-group-checkbox">
+                <input type="checkbox" id="specialty_keys" name="specialty_keys_choice" value="true">
+                <label for="specialty_keys">Include Specialty Keys</label>
+            </div>
+
+            <!-- Specialty Key Fields (Initially Hidden) -->
+            <div id="specialty-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="key_slot">Key Slot</label>
+                    <input type="number" id="key_slot" name="key_slot">
+                </div>
+
+                <div class="form-group">
+                    <label for="key_version">Key Version</label>
+                    <input type="number" id="key_version" name="key_version" min="0" max="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="key_type">Key Type</label>
+                    <select id="key_type" name="key_type_choice">
+                        <option value="" disabled selected hidden>-- Select type --</option>
+                        <option value="aes_128">AES-128 Key</option>
+                        <option value="mifare">MIFARE Key</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="key_use">Key Use</label>
+                    <select id="key_use" name="key_use_choice">
+                        <option value="" disabled selected hidden>-- Select use --</option>
+                        <option value="picc">PICC Key</option>
+                        <option value="offline_crypto">Offline Crypto Key</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- TCI -->
+            <div class="form-group">
+                <label for="tci">TCI</label>
+                <input type="text" id="tci" name="tci_choice" required>
+            </div>
+
+            <!--ECP FORMAT?? -- How does this work? Default and Non-Default? -->
+
+            <!-- ECP Terminal Input Mode -->
+            <div class="form-group">
+                <label for="ecp_terminal">ECP Terminal Input Mode</label>
+                <select id="ecp_terminal" name="ecp_terminal_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="tra_express">TRA Express</option>
+                    <option value="tra_enabled">TRA Enabled</option>
+                </select>
+            </div>
+
+            <!-- ECP Terminal Subtype -->
+            <div class="form-group">
+                <label for="ecp_terminal_subtype">ECP Terminal Subtype</label>
+                <select id="ecp_terminal_subtype" name="ecp_terminal_subtype_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="university">University</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="hospitality">Hospitality</option>
+                    <option value="residential">Residential</option>
+                </select>
+            </div>
+
+            <!-- ECP Bit Count -->
+            <div class="form-group">
+                <label for="ecp_bit_count">ECP Bit Count</label>
+                <input type="number" id="ecp_bit_count" name="ecp_bit_count_choice" min="0">
+            </div>
+
+            <!-- ECP App -->
+            <div class="form-group">
+                <label for="ecp_app">ECP App</label>
+                <select id="ecp_app" name="ecp_app_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="credential_app">Credential App</option>
+                    <option value="secure_app">Secure App</option>
+                </select>
+            </div>
+
+            <!-- Mifare 2Go Application ID -->
+            <div class="form-group">
+                <label for="mifare_2go_app_id">Mifare 2Go Application ID</label>
+                <select id="mifare_2go_app_id" name="mifare_2go_app_id_choice" required>
+                    <option value="" disabled selected hidden>-- Select an option --</option>
+                    <option value="generic">Generic</option>
+                    <option value="leaf">Leaf</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="reset_btn" class="btn-secondary">Reset Form</button>
+                <button type="submit" class="btn-primary">Generate YAML</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Handle the dynamic display of specialty key fields
+        const checkbox = document.getElementById('specialty_keys');
+        const container = document.getElementById('specialty-fields');
+        const inputs = container.querySelectorAll('input, select');
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                container.style.display = 'block';
+                inputs.forEach(input => input.required = true);
+            } else {
+                container.style.display = 'none';
+                inputs.forEach(input => {
+                    input.required = false;
+                    input.value = ""; 
+                });
+            }
+        });
+
+        // Reset button logic
+        const resetBtn = document.getElementById('reset_btn');
+        const form = document.querySelector('form');
+        
+        resetBtn.addEventListener('click', function() {
+            form.reset();
+            container.style.display = 'none';
+            inputs.forEach(input => {
+                input.required = false;
+            });
+        });
+    </script>
+</body>
+</html>

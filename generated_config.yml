@@ -1,0 +1,112 @@
+sam_type:
+- SAM_AV2: 2
+- SAM_AV3: 3
+sel_sam_type: 3
+
+partner:
+- PARTNER_ELATEC: 1
+- PARTNER_RFIDEAS: 2
+- PARTNER_BRIVO: 3
+- PARTNER_TEST: 4
+sel_partner: 2
+
+partner_km:
+- partnerKm0: 0
+- partnerKm1: 1
+- partnerKm2: 2
+- partnerKm3: 3
+- partnerKm4: 4
+- partnerKm5: 5
+- partnerKm6: 6
+- partnerKm7: 7
+- partnerKm8: 8
+- partnerKm9: 9
+- partnerKm10: 10
+- partnerKm11: 11
+- partnerKm12: 12
+- partnerKm13: 13
+- partnerKm14: 14
+- partnerKm15: 15
+sel_partner_km: 2
+
+sku_oem:
+- SKU_BUTTERFLY_MX: 1
+- SKU_BOA: 2
+- SKU_REDHAT: 3
+- SKU_UGA: 4
+- SKU_CWO1: 5
+- SKU_LEAF_SI: 6
+- SKU_WELLS_FARGO: 7
+- SKU_FIL: 8
+- SKU_QUADREAL: 8
+- SKU_SOLOINSIGHT: 10
+- SKU_CARDINAL_HEALTH: 11
+- SKU_BRIVO: 27
+- SKU_TEST: 18
+- SKU_TIAA: 61
+- SKU_PDK: 62
+sel_sku_oem: 62
+
+sel_Wl_lk: true
+OEM_lk1_name: Lk50003
+OEM_lk2_name: null
+
+specialty_keys: null
+
+tci_1: 0x02
+tci_2: 0x09
+tci_3: 0xFE
+
+ecp_format:
+- ECP_FORMAT_1: 1
+- ECP_FORMAT_2: 2
+sel_ecp_format: 2
+
+ecp_terminal_info_mode:
+- ECP_WL_TERMINAL_INFO: 0xC3
+- ECP_WL_TERMINAL_INFO_USER_AUTH: 0x83
+sel_ecp_terminal_info_mode: 0xC3
+
+ecp_terminal_type: 2
+
+ecp_terminal_subtype:
+- ECP_TERMINAL_SUBTYPE_UNIVERSITY: 0
+- ECP_TERMINAL_SUBTYPE_CORPORATE: 2
+- ECP_TERMINAL_SUBTYPE_HOSPITALITY: 3
+- ECP_TERMINAL_SUBTYPE_RESIDENTIAL: 4
+sel_ecp_terminal_subtype: 2
+
+ecp_bit_count: 40
+
+ecp_app_options:
+- ECP_OPTIONS_1: 1
+- ECP_OPTIONS_2: 2
+sel_ecp_app_options: 1
+
+M2G_AID_MSB: 0xF5
+M2G_AID_HSB: 0x32
+M2G_AID_LSB: 0xF0
+
+PF_func:
+- PF_FUNC_NO_FILTER: 0
+- PF_FUNC_EQ: 1
+- PF_FUNC_ME: 2
+- PF_FUNC_LE: 3
+- PF_FUNC_NE: 4
+sel_PF_func: 0
+
+PF_num_bits: 0
+
+filter_all: false
+
+PF_value: 0
+
+bit_stream: null
+
+filtered_field_tag:
+- UNUSED: 0
+- BS_BID_MAP: 0xB2
+- BS_FAC_MAP: 0xB3
+- BS_CITY_CODE_MAP: 0xB5
+- BS_TECH_NUM_MAP: 0xB6
+sel_filtered_field_tag: 0

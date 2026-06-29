@@ -1,0 +1,73 @@
+sam_type:
+- SAM_AV3: 1
+sel_sam_type: 1
+
+partner:
+- PARTNER_RFIDEAS: 1
+sel_partner: 1
+
+partner_km:
+- partnerKm2: 1
+sel_partner_km: 1
+
+sku_oem:
+- SKU_TIAA: 1
+sel_sku_oem: 1
+
+sel_Wl_lk: false
+OEM_lk1_name: Lk10021
+OEM_lk2_name: null
+
+specialty_keys: null
+
+tci_1: 0x02
+tci_2: 0x09
+tci_3: 0x16
+
+sel_ecp_format: 1
+
+ecp_format: 2
+
+ecp_terminal_info_mode:
+- ECP_WL_TERMINAL_INFO: 0xC3
+sel_ecp_terminal_info_mode: 0xC3
+
+ecp_terminal_type: 2
+
+ecp_terminal_subtype:
+- ECP_TERMINAL_SUBTYPE_CORPORATE: 1
+sel_ecp_terminal_subtype: 1
+
+ecp_bit_count: 40
+
+ecp_app_options:
+- ECP_OPTIONS_1: 1
+sel_ecp_app_options: 1
+
+M2G_AID_MSB: 0xF5
+M2G_AID_HSB: 0x32
+M2G_AID_LSB: 0xF0
+
+PF_func:
+- PF_FUNC_NO_FILTER: 0
+- PF_FUNC_EQ: 1
+- PF_FUNC_ME: 2
+- PF_FUNC_LE: 3
+- PF_FUNC_NE: 4
+sel_PF_func: 0
+
+PF_num_bits: 0
+
+filter_all: false
+
+PF_value: 0
+
+bit_stream: null
+
+filtered_field_tag:
+- UNUSED: 0
+- BS_BID_MAP: 0xB2
+- BS_FAC_MAP: 0xB3
+- BS_CITY_CODE_MAP: 0xB5
+- BS_TECH_NUM_MAP: 0xB6
+sel_filtered_field_tag: 0
